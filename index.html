@@ -3,25 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Radial Menu</title>
+    <title>Circle Menu</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </head>
 <body>
-    <div class="radial-menu">
-        <input type="checkbox" id="toggle">
-        <label for="toggle" class="hamburger">
-            <i class="fas fa-bars"></i>
-        </label>
+    <div class="menu">
+        <div class="menutoggle"><ion-icon name="add-outline"></ion-icon></div>
         <ul>
-            <li><a href="#"><i class="fas fa-home"></i></a></li>
-            <li><a href="#"><i class="fas fa-cog"></i></a></li>
-            <li><a href="#"><i class="fas fa-envelope"></i></a></li>
-            <li><a href="#"><i class="fas fa-key"></i></a></li>
-            <li><a href="#"><i class="fas fa-camera"></i></a></li>
-            <li><a href="#"><i class="fas fa-gamepad"></i></a></li>
-            <li><a href="#"><i class="fas fa-user"></i></a></li>
+            <li style="--i: 0; --clr: #ff2972;">Item 1</li>
+            <li style="--i: 1; --clr: #ffb56b;">Item 2</li>
+            <li style="--i: 2; --clr: #32ff7e;">Item 3</li>
+            <li style="--i: 3; --clr: #7a5cff;">Item 4</li>
+            <li style="--i: 4; --clr: #18dcff;">Item 5</li>
         </ul>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
