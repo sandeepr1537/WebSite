@@ -1,99 +1,71 @@
 body {
+    margin: 0;
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
-    background-color: #f0f0f0;
-    font-family: Arial, sans-serif;
+    background: #222;
+    font-family: 'Arial', sans-serif;
 }
 
-.radial-menu {
+.menu {
     position: relative;
-    width: 100px;
-    height: 100px;
-    margin-top: 50px;
-}
-
-input[type="checkbox"] {
-    display: none;
-}
-
-.hamburger {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    line-height: 100px;
-    cursor: pointer;
-    z-index: 1;
-}
-
-.hamburger i {
-    font-size: 24px;
-    color: #333;
-    transition: transform 0.3s ease;
-}
-
-.hamburger i:before {
-    content: "\f0c9"; /* Font Awesome bars icon */
-}
-
-input[type="checkbox"]:checked + .hamburger i:before {
-    content: "\f00d"; /* Font Awesome times icon */
-}
-
-ul {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.menu .menutoggle {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #333;
+    color: #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 24px;
+    position: relative;
+    z-index: 10;
+}
+
+.menu ul {
+    list-style: none;
     margin: 0;
     padding: 0;
-    list-style-type: none;
-    transform: scale(0);
-    transition: transform 0.3s ease;
-    pointer-events: none;
-}
-
-input[type="checkbox"]:checked + .hamburger + ul {
-    transform: scale(1);
-    pointer-events: auto;
-}
-
-ul li {
     position: absolute;
-    width: 40px;
-    height: 40px;
-    text-align: center;
-    line-height: 40px;
-    border-radius: 50%;
-    background-color: #007bff;
-    transform: translateY(-120px);
-    transition: transform 0.3s ease;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-ul li a {
-    display: block;
+.menu ul li {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: var(--clr);
     color: #fff;
-    font-size: 18px;
-    text-decoration: none;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotate(calc(var(--i) * 72deg)) translate(100px) rotate(calc(var(--i) * -72deg));
+    transition: transform 0.5s ease-in-out;
 }
 
-ul li:nth-child(1) { transform: rotate(0deg); }
-ul li:nth-child(2) { transform: rotate(60deg); }
-ul li:nth-child(3) { transform: rotate(120deg); }
-ul li:nth-child(4) { transform: rotate(180deg); }
-ul li:nth-child(5) { transform: rotate(240deg); }
-ul li:nth-child(6) { transform: rotate(300deg); }
-ul li:nth-child(7) { transform: rotate(360deg); }
+.menu.open ul li {
+    transform: rotate(calc(var(--i) * 72deg)) translate(100px) rotate(calc(var(--i) * -72deg));
+}
 
-input[type="checkbox"]:checked + .hamburger + ul li {
-    transform: translateY(0) rotate(0deg);
+.menu ul li:hover {
+    background: #fff;
+    color: var(--clr);
+}
+
+.menu:not(.open) ul li {
+    transform: rotate(calc(var(--i) * 72deg)) translate(0px) rotate(calc(var(--i) * -72deg));
 }
