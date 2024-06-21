@@ -12,11 +12,19 @@ body {
     list-style: none;
     display: flex;
     flex-direction: column;
+    transition: max-height 0.5s ease-in-out;
+    overflow: hidden;
+    max-height: 0; /* initially hidden */
+}
+
+.menu.show {
+    max-height: 500px; /* set an appropriate max-height */
 }
 
 .menu-toggle {
     cursor: pointer;
     margin-bottom: 20px;
+    color: white;
 }
 
 .menu li {
